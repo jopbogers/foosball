@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('match_records', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['1v1', '2v2']);
-            $table->integer('team1_score');
-            $table->integer('team2_score');
+            $table->integer('team_blue_score');
+            $table->integer('team_red_score');
             $table->foreignId('season_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

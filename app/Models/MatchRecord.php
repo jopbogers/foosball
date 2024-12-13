@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class MatchRecord extends Model
 {
     protected $fillable = [
-        'type', 'team1_score', 'team2_score', 'season_id'
+        'type', 'team_red_score', 'team_blue_score', 'season_id'
     ];
 
     public function participants(): HasMany
