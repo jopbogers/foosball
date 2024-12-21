@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('match_participants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('match_id')->constrained('match_records')->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->enum('team', ['Blue', 'Red']);
+            $table->foreignId('user_rating_id')->constrained()->cascadeOnDelete();
+            $table->float('rating_before');
+            $table->float('rating_after');
+            $table->enum('team', ['blue', 'red']);
             $table->timestamps();
         });
     }

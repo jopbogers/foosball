@@ -9,13 +9,15 @@ class MatchParticipant extends Model
 {
     protected $fillable = [
         'match_id',
-        'user_id',
+        'user_rating_id',
+        'rating_before',
+        'rating_after',
         'team'
     ];
 
-    public function user(): BelongsTo
+    public function userRating(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(UserRating::class);
     }
 
     public function match(): BelongsTo

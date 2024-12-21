@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Livewire\AddMatch;
+use App\Livewire\Ranking;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/', fn() => view('dashboard'))->name('dashboard');
+    Route::get('/', Ranking::class)->name('ranking');
     Route::get('/add/match', AddMatch::class)->name('add.match');
 });
 

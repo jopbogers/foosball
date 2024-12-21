@@ -12,7 +12,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes, MustVerifyEmail;
-
     protected $fillable = [
         'name',
         'email',
