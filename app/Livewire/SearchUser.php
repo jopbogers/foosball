@@ -25,13 +25,13 @@ class SearchUser extends Component
     public function selectUser(User $user): void
     {
         $this->user = $user;
-        $this->dispatch($this->event, $user);
+        $this->dispatch('set-'.$this->event, $user);
     }
 
     public function delete(): void
     {
         $this->user = null;
-        $this->dispatch($this->event, null);
+        $this->dispatch('delete-'.$this->event);
     }
 
     public function render(): View|Factory|Application

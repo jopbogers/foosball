@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('season_id')->constrained()->cascadeOnDelete();
-            $table->integer('rating')->default(1000);
+            $table->float('rating')->default(1000);
             $table->integer('wins')->default(0);
             $table->integer('losses')->default(0);
-            $table->integer('goal_for')->default(0);
-            $table->integer('goal_against')->default(0);
+            $table->integer('goals_for')->default(0);
+            $table->integer('goals_against')->default(0);
             $table->timestamps();
         });
     }

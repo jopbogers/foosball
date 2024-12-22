@@ -1,4 +1,4 @@
-<div class="my-10">
+<div class="py-10">
     <h1 class="text-gray-300 text-center text-3xl mb-10">Season {{$season->name}}</h1>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
         <div class="bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -17,7 +17,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($season->ranking() as $player)
+                @foreach($season->players as $player)
                     <tr class="border-t border-gray-900">
                         <td class="p-2 pl-10 sm:w-32 text-gray-300">
                             <div class="flex items-center my-auto gap-2">
@@ -35,9 +35,9 @@
                         <td class="p-2 w-32 text-gray-300/50 ">{{round($player->rating)}}</td>
                         <td class="hidden sm:table-cell p-2 w-20 text-gray-300/50">{{$player->wins}}</td>
                         <td class="hidden sm:table-cell p-2 w-20 text-gray-300/50">{{$player->losses}}</td>
-                        <td class="hidden sm:table-cell p-2 w-20 text-gray-300/50">{{$player->goal_for}}</td>
-                        <td class="hidden sm:table-cell p-2 w-20 text-gray-300/50">{{$player->goal_against}}</td>
-                        <td class="hidden sm:table-cell p-2 pr-10 w-20 text-gray-300/50">{{$player->goal_for - $player->goal_against}}</td>
+                        <td class="hidden sm:table-cell p-2 w-20 text-gray-300/50">{{$player->goals_for}}</td>
+                        <td class="hidden sm:table-cell p-2 w-20 text-gray-300/50">{{$player->goals_against}}</td>
+                        <td class="hidden sm:table-cell p-2 pr-10 w-20 text-gray-300/50">{{$player->goals_for - $player->goals_against}}</td>
                     </tr>
                 @endforeach
                 </tbody>

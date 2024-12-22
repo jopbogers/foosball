@@ -1,13 +1,21 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AdminMiddleware;
 use App\Livewire\AddMatch;
+use App\Livewire\EditMatch;
+use App\Livewire\Matches;
 use App\Livewire\Ranking;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', Ranking::class)->name('ranking');
+    Route::get('/matches', Matches::class)->name('matches');
     Route::get('/add/match', AddMatch::class)->name('add.match');
+});
+
+Route::middleware(AdminMiddleware::class)->group(function () {
+    Route::get('/edit/match/{match}', EditMatch::class)->name('edit.match');
 });
 
 Route::middleware('auth')->group(function () {

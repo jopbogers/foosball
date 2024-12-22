@@ -23,11 +23,6 @@ class Season extends Model
 
     public function players(): HasMany
     {
-        return $this->hasMany(UserRating::class);
-    }
-
-    public function ranking(): Collection
-    {
-        return$this->players()->orderBy('rating', 'desc')->get();
+        return $this->hasMany(UserRating::class)->orderBy('rating', 'desc');
     }
 }

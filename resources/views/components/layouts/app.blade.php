@@ -31,6 +31,7 @@
     <main>
         {{ $slot }}
     </main>
+    <x-success-alert/>
 </div>
 </body>
 </html>

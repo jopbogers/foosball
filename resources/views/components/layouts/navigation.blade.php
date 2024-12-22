@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
                         {{ __('Ranking') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('matches')" :active="request()->routeIs('matches')">
+                        {{ __('Matches') }}
+                    </x-nav-link>
                     <x-nav-button :href="route('add.match')" :active="request()->routeIs('add.match')">Add Match
                     </x-nav-button>
                 </div>

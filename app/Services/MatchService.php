@@ -77,8 +77,8 @@ class MatchService
             $player->rating += $diff;
             $player->wins += $winner ? 1 : 0;
             $player->losses += $winner ? 0 : 1;
-            $player->goal_for += $scoreOwn;
-            $player->goal_against += $scoreOpp;
+            $player->goals_for += $scoreOwn;
+            $player->goals_against += $scoreOpp;
             $player->save();
         }
     }

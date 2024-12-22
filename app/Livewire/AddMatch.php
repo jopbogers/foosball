@@ -31,28 +31,52 @@ class AddMatch extends Component
         $this->season = Season::latest()->first();
     }
 
-    #[On('player-red-1')]
-    public function setPlayerRed1(?User $user): void
+    #[On('set-player-red-1')]
+    public function setPlayerRed1(User $user): void
     {
         $this->playerRed1 = $user;
     }
 
-    #[On('player-red-2')]
-    public function setPlayerRed2(?User $user): void
+    #[On('set-player-red-2')]
+    public function setPlayerRed2(User $user): void
     {
         $this->playerRed2 = $user;
     }
 
-    #[On('player-blue-1')]
-    public function setPlayerBlue1(?User $user): void
+    #[On('set-player-blue-1')]
+    public function setPlayerBlue1(User $user): void
     {
         $this->playerBlue1 = $user;
     }
 
-    #[On('player-blue-2')]
-    public function setPlayerBlue2(?User $user): void
+    #[On('set-player-blue-2')]
+    public function setPlayerBlue2(User $user): void
     {
         $this->playerBlue2 = $user;
+    }
+
+    #[On('delete-player-red-1')]
+    public function deletePlayerRed1(): void
+    {
+        $this->playerRed1 = null;
+    }
+
+    #[On('delete-player-red-2')]
+    public function deletePlayerRed2(): void
+    {
+        $this->playerRed2 = null;
+    }
+
+    #[On('delete-player-blue-1')]
+    public function deletePlayerBlue1(): void
+    {
+        $this->playerBlue1 = null;
+    }
+
+    #[On('delete-player-blue-2')]
+    public function deletePlayerBlue2(): void
+    {
+        $this->playerBlue2 = null;
     }
 
     public function updatedMatchType()
@@ -89,6 +113,9 @@ class AddMatch extends Component
             $teams['blue'],
             $this->season
         );
+
+        session()->flash('success', 'Match added successfully.');
+        $this->redirectRoute('matches');
     }
 
     public function render(): Application|Factory|View
@@ -96,7 +123,7 @@ class AddMatch extends Component
         return view('livewire.add-match', ['valid' => $this->checkValid()]);
     }
 
-    private function checkValid(): bool
+    protected function checkValid(): bool
     {
         if ($this->matchType === '2v2') {
             if (

@@ -10,9 +10,15 @@ class TeamData
     /** @var UserRating[] */
     public array $players;
 
-    public function __construct(float $rating, array $players)
+    public function __construct(float $rating = 0.0, array $players = [])
     {
         $this->rating = $rating;
         $this->players = $players;
+    }
+
+    public function addPlayer(UserRating $player): void
+    {
+        $this->rating += $player->rating;
+        $this->players[] = $player;
     }
 }
