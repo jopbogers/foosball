@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Livewire\AddMatch;
+use App\Livewire\Admin;
 use App\Livewire\EditMatch;
+use App\Livewire\EditUser;
 use App\Livewire\Matches;
 use App\Livewire\Ranking;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +18,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/edit/match/{match}', EditMatch::class)->name('edit.match');
+    Route::get('/admin', Admin::class)->name('admin');
+    Route::get('/edit/user/{userId}', EditUser::class)->name('edit.user');
 });
 
 Route::middleware('auth')->group(function () {

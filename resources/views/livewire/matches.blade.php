@@ -2,9 +2,9 @@
     <h1 class="text-gray-300 text-center text-3xl mb-10">Season {{$season->name}}</h1>
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 ">
         <div
-                class="bg-white dark:bg-gray-800 p-5 flex flex-col gap-5 overflow-hidden shadow-sm sm:rounded-lg text-gray-700 dark:text-gray-300">
+                class="bg-gray-800 p-5 flex flex-col gap-5 overflow-hidden shadow-sm sm:rounded-lg text-gray-300">
             @foreach($matches as $match)
-                <div class="dark:bg-gray-900 bg-gray-100 py-5 px-10  rounded-lg relative">
+                <div class="bg-gray-900  py-5 px-10  rounded-lg relative">
                     @if(auth()->user()->admin)
                         <a class="absolute top-5 right-5" href="{{route('edit.match', ['match' => $match])}}"><x-carbon-edit class="w-5 h-5"/></a>
                     @endif

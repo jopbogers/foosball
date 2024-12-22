@@ -18,6 +18,11 @@
                     <x-nav-link :href="route('matches')" :active="request()->routeIs('matches')">
                         {{ __('Matches') }}
                     </x-nav-link>
+                    @if(Auth::user()->admin)
+                        <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                            {{ __('Admin') }}
+                        </x-nav-link>
+                    @endif
                     <x-nav-button :href="route('add.match')" :active="request()->routeIs('add.match')">Add Match
                     </x-nav-button>
                 </div>
