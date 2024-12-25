@@ -13,14 +13,8 @@ class SearchUser extends Component
     public string $label;
     public string $event;
 
-    public string $id;
     public string $search = '';
     public ?User $user;
-
-    public function mount(): void
-    {
-        $this->id = uniqid();
-    }
 
     public function selectUser(User $user): void
     {

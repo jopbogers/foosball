@@ -8,6 +8,8 @@ use App\Models\Season;
 use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class RecalculateMatchesJob implements ShouldQueue
 {
@@ -29,8 +31,19 @@ class RecalculateMatchesJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $this->resetUserRatings();
-        $this->recalculateMatches();
+        Artisan::call('down', [
+            '--retry' => 60, // Clients are instructed to retry after 60 seconds
+        ]);
+
+        try {
+            $this->resetUserRatings();
+            $this->recalculateMatches();
+        } catch (\Exception $e) {
+            Log::error('CriticalTaskJob failed: '.$e->getMessage());
+            throw $e;
+        } finally {
+            Artisan::call('up');
+        }
     }
 
     private function resetUserRatings(): void

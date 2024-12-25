@@ -13,7 +13,7 @@
         </x-slot>
         <div class="absolute z-50 mt-3  rounded-md bg-gray-700 w-full shadow-lg max-h-52 overflow-y-auto">
             @foreach($users as $user)
-                <button wire:click="selectUser({{$user}})" class="w-full text-left p-3 bg-gray-900/80 border border-gray-700 hover:bg-gray-700">
+                <button wire:click="selectUser({{$user}})" wire:key="user-{{ $user->id }}" class="w-full text-left p-3 bg-gray-900/80 border border-gray-700 hover:bg-gray-700">
                     <p>{{$user->name}}</p>
                 </button>
             @endforeach
