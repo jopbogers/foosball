@@ -10,6 +10,15 @@ use Tests\TestCase;
 
 class AddMatchTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->artisan('db:seed')->run();
+    }
+
     /** @test */
     public function renders_successfully()
     {
