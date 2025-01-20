@@ -12,7 +12,7 @@
                         @endif
                         <div class="my-5 flex flex-col gap-3">
                             <x-input-label>Score</x-input-label>
-                            <x-text-input wire:model.live="scoreRed" type="number" min="0" max="10"/>
+                            <x-match-score team="Red"/>
                         </div>
                     </div>
                     <div class="w-full">
@@ -23,7 +23,7 @@
                         @endif
                         <div class="my-5 flex flex-col gap-3">
                             <x-input-label>Score</x-input-label>
-                            <x-text-input wire:model.live="scoreBlue" type="number" min="0" max="10"/>
+                            <x-match-score team="Blue"/>
                         </div>
                     </div>
                 </div>

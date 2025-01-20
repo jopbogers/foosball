@@ -18,8 +18,8 @@ class AddMatch extends Component
 
     public bool $disabled = false;
     public string $matchType = '2v2';
-    public ?int $scoreRed = 0;
-    public ?int $scoreBlue = 0;
+    public ?int $scoreRed = null;
+    public ?int $scoreBlue = null;
 
     public ?User $playerRed1 = null;
     public ?User $playerRed2 = null;
