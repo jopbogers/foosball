@@ -1,6 +1,6 @@
 @props(['team'])
 
-<ul class="grid gap-4 md:grid-cols-11 mx-auto my-4 relative">
+<ul class="grid gap-4 grid-cols-7 justify-center md:grid-cols-11 mx-auto my-4 relative">
     @for ($i = 0; $i <= 10; $i++)
         <li class="z-20">
             <input type="radio" id="{{$team . '_'. $i}}" name="score{{$team}}" value="{{$i}}" wire:model.change="score{{$team}}" class="hidden peer" required />

@@ -88,9 +88,17 @@
             <x-responsive-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
                 {{ __('Ranking') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('matches')" :active="request()->routeIs('matches')">
+                {{ __('Matches') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('add.match')" :active="request()->routeIs('add.match')">
                 {{ __('Add Match') }}
             </x-responsive-nav-link>
+            @if(Auth::user()->admin)
+            <x-responsive-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                {{ __('Admin') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
