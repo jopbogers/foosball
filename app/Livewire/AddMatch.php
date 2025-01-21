@@ -94,6 +94,8 @@ class AddMatch extends Component
             return;
         }
 
+        $this->disabled = true;
+
         $service = new MatchService();
 
         $teams = $service->buildTeams(
