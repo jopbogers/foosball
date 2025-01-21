@@ -90,7 +90,7 @@ class AddMatch extends Component
      */
     public function save()
     {
-        if (!$this->checkValid()) {
+        if (!$this->checkValid() || $this->disabled) {
             return;
         }
 
